@@ -28,7 +28,7 @@ function _init()
 		x=63,
 		y=63,
 		c=7,
-		w=2,
+		w=1,
 		dx=0.6,
 		dy=flr(rnd(2))-0.5,
 		speed=1,
@@ -70,11 +70,10 @@ function _draw()
 	line_y = 10 //reset
 		
 	//ball
-	rectfill(
+	circfill(
 		ball.x,
 		ball.y,
-		ball.x+ball.w,
-		ball.y+ball.w,
+		ball.w,
 		ball.c
 	)
 	
@@ -151,8 +150,8 @@ function _update60()
 	if ball.dx < 0
 	and ball.x >= player.x
 	and ball.x <= player.x + player.w
-	and ball.y >= player.y
-	and ball.y + ball.w <= player.y + player.h
+	and ball.y >= player.y - 2
+	and ball.y + ball.w <= player.y + player.h + 1
 	then
 		//control ball dy if hit and press up or down
 		if btn(⬆️) then
